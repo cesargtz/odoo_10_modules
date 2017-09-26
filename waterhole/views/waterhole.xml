@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="waterhole_form_view">
+            <field name="name">waterhole.form</field>
+            <field name="model">waterhole</field>
+            <field name="arch" type="xml">
+                <form string="Pozos">
+                    <sheet>
+                        <group string="Datos del Pozo" col="4" colspan="2">
+                            <field name="name"/>
+                            <field name="owner"/>
+                            <field name="cubic_meters"/>
+                            <field name="coordinates"/>
+                            <field name="expiration_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="waterhole_tree_view">
+            <field name="name">waterhole.tree</field>
+            <field name="model">waterhole</field>
+            <field name="arch" type="xml">
+                <tree string="Waterhole Tree" colors="red: expiration_date &lt; current_date">
+                    <field name="name"/>
+                    <field name="owner"/>
+                    <field name="cubic_meters"/>
+                    <field name="coordinates"/>
+                    <field name="expiration_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="waterhole_list_action">
+            <field name="name">Waterholes</field>
+            <field name="res_model">waterhole</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first waterhole
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            action="waterhole_list_action" id="menu_product_in_config_waterhole"
+            parent="purchase.menu_product_in_config_purchase" sequence="1" />
+</odoo>

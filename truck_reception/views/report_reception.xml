@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>      
+      
+<odoo>
+
+   
+
+    <report
+        id="recepciton_truck"
+        model="truck.reception"
+        string="Recepcion de Camion"
+        name="truck_reception.report_reception_view"
+        file="truck_reception.report_reception"
+        report_type="qweb-pdf" />
+
+    <template id="report_reception_view">
+         <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h1 align="left"><b>Recepcion de camion. <span t-field="o.name"/></b></h1>
+                                         
+                 <br/>
+                      
+            <table style="font-size:16px;border: 0px;padding: 5px;width:100%">
+                    <tr>
+                     
+                        <td><b>Contrato:  </b><span t-field="o.contract_id"/></td>
+                        <td> <span t-field="o.contract_type"/></td>
+                        <td><b>Fecha: </b><span t-field="o.date"/></td>
+                  
+                    </tr>
+                
+                     <tr>
+                     
+                        <td><b>Contrato Axuiliar: </b><span t-field="o.auxiliary_contract"/></td>
+                        <td> <span t-feld="o.driver"/></td>
+                        <td> <b>Conductor: </b><span t-field="o.driver"/></td>
+                                        
+                    </tr>  
+                    <tr>
+                     
+                        <td><b>Proveedor: </b><span t-field="o.partner_id"/></td>
+                        <td> <span t-feld="o.driver"/></td>
+                        <td><b>Placas:  </b><span t-field="o.car_plates"/></td>
+                  
+                    </tr>
+                    <tr>
+                     
+                        <td><b>Campo: </b><span t-field="o.street2"/></td>
+                        <td> <span t-feld="o.driver"/></td>
+                        <td><b>Flete:  </b><span t-field="o.flete"/></td>
+                  
+                    </tr>
+                     
+        </table>  
+        <br/>
+
+                     <table style="font-size:14px;text-shadow: 1px 1px 1px #888888;border: 0px;padding: 5px;">
+                <thead>
+                    <tr>
+                        <th style="width:15%;text-align:left;">Contratado</th>
+                        <th style="width:40%;text-align:center;">Entregado</th>
+                        <th style="width:10%;" class="text-right">Pendiente</th>            
+                    </tr>
+                </thead>                
+                <tbody>
+                    <tr>
+                        <td class="text-align:left;"><span t-field="o.hired"/></td>
+                        <td style="text-align:center;"><span t-field="o.delivered"/></td>
+                        <td class="text-right"><span t-field="o.pending"/></td>
+                        
+                    </tr>
+                </tbody>
+            </table>   
+            <br/>  
+
+              <table style="font-size:16px;border: 0px;padding: 5px;width:100%">
+                    <tr>
+                     
+                        <td><b>Humedad: </b><span t-field="o.humidity_rate"/></td>
+                        <td><b>Daño: </b><span t-field="o.damage_rate"/></td>
+                        <td><b>Transgenico:  </b><span t-field="o.transgenic"/></td>
+                  
+                    </tr>
+                    <tr>
+                     
+                        <td><b>Densidad: </b><span t-field="o.density"/></td>
+                        <td><b>Quebrado: </b><span t-field="o.break_rate"/></td>                     
+                  
+                    </tr>
+                    <tr>
+                     
+                        <td><b>Temperatura: </b><span t-field="o.temperature"/></td>
+                        <td><b>Impureza: </b><span t-field="o.impurity_rate"/></td>                     
+                  
+                    </tr>
+                  </table>
+                  <br/>  
+
+                    <table style="font-size:16px;border: 0px;padding: 5px;width:100%">
+                    <tr>           
+                        <td><b>Ticket: </b><span t-field="o.ticket"/></td>        
+                    </tr>
+            </table>  
+            <br/>   
+             <table style="font-size:16px;border: 0px;padding: 5px;width:100%">
+
+                    <tr>
+                     
+                        <td><b>Kilos de entrada: </b><span t-field="o.input_kilos"/></td>
+                        <td><b>Kilos quebrados: </b><span t-field="o.broken_kilos"/></td>
+                        
+                    </tr>
+                    <tr>
+                     
+                        <td> <span t-feld="o.humidity_rate"/></td>
+                        <td><b>Kilos impuros: </b><span t-field="o.impure_kilos"/></td>
+                        
+                    </tr>
+                    <tr>
+                     
+                        <td><b>Kilos de salida: </b><span t-field="o.output_kilos"/></td>
+                        <td><b>Kilos dañados: </b><span t-field="o.damaged_kilos"/></td>
+                        
+                    </tr>
+                    <tr>
+                     
+                        <td> <span t-feld="o.humidity_rate"/></td>
+                        <td><b>Kilos humedos: </b><span t-field="o.humid_kilos"/></td>
+                        
+                    </tr>
+                    <tr>
+                     
+                        <td><b>Kilos de netos: </b><span t-field="o.raw_kilos"/></td>
+                        <td><b>Kilos limpios: </b><span t-field="o.clean_kilos"/></td>
+                        
+                    </tr>
+             </table>           
+              
+                          
+                        
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

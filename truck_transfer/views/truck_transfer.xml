@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="truck_transfer_form_view">
+                <field name="name">truck.transfer.form</field>
+                <field name="model">truck.transfer</field>
+                <field name="arch" type="xml">
+                        <form string="wagon Transfer">
+                          <header>
+                            <button name="action_move" type="object" string="Transfer" class="oe_highlight"/>
+                          </header>
+                          <sheet>
+                            <group>
+                              <field name="product_ide"/>
+                              <field name="quantity"/>
+                              <field name="location_id"/>
+                              <field name="location_dest_id"/>
+                            </group>
+                          </sheet>
+                        </form>
+                </field>
+        </record>
+	 <record model="ir.ui.view" id="truck_transfer_tree_view">
+                <field name="name">truck.transfer.tree</field>
+                <field name="model">truck.transfer</field>
+                <field name="arch" type="xml">          
+                        <tree string="Truck Transfer Tree">
+                                <field name="product_ide"/>
+                        </tree>
+                </field>                
+        </record>
+	<record model="ir.actions.act_window" id="truck_transfer_list_action">
+		<field name="name">Truck Transfer</field>
+		<field name="res_model">truck.transfer</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">Create the first Truck</p>
+		</field>
+	</record>
+	<menuitem id="main_truck_transfer_menu" name="Truck Transfer"/>
+	<menuitem id="truck_transfer_menu" name="Truck Transfer" parent="main_truck_transfer_menu"/>
+   	<menuitem id="truck_transfer_tree" name="Transfer" parent="truck_transfer_menu" action="truck_transfer_list_action"/>
+     
+</odoo>

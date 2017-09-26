@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="waterhole_hired_tree_view">
+            <field name="name">waterhole.hired.tree</field>
+            <field name="model">waterhole.hired</field>
+            <field name="arch" type="xml">
+                <tree string="Waterhole Hired Tree" editable="bottom">
+                    <field name="waterhole_id"/>
+                    <field name="owner"/>
+                    <field name="cubic_meters"/>
+                    <field name="coordinates"/>
+                    <field name="expiration_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_order_waterhole">
+            <field name="name">purchase.order.waterhole</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Waterhole">
+                        <field name="waterhole_hired_ids"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    
+</odoo>

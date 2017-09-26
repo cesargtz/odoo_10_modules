@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <template id="axc_contract_view" inherit_id="purchase_contract_type.axc_contract_view">            
+        <xpath expr="//table[@name='farm']" position="replace">
+            <table border="1px solid black" name='farm'>
+                <tr>
+                    <th border="1px solid black">Folio del Predio</th>
+                    <th border="1px solid black">Superficie</th>
+                </tr>
+                <t t-foreach="doc.farm_area_ids" t-as="farm">
+                    <tr>
+                        <td border="1px solid black"><span t-field="farm.farm_id"/></td>
+                        <td border="1px solid black"><span t-field="farm.hired_area"/></td>
+                    </tr>
+                </t>
+            </table>
+        </xpath>
+    </template>
+
+    
+</odoo>

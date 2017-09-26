@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="suppliers_history_tree_view">
+        <field name="name">suppliers.history.tree</field>
+        <field name="model">suppliers.history</field>
+        <field name="arch" type="xml">
+            <tree string="Historial de Contratos" editable="bottom">
+                <field name="date"/>
+                <field name="hired"/>
+                <field name="delivered"/>
+                <field name="pending"/>
+                <field name="progressbar" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="suppliers_history_view_inherit">
+        <field name="name">suppliers_history_view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            
+            <notebook position="inside">
+                <page string="History">
+                  <tree>
+                     <!-- <field name="last_year_contract"/>
+                     <field name="tons_hired"/> -->
+                     <field name="suppliers_history_ids"/>
+                  </tree>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+  
+</odoo>

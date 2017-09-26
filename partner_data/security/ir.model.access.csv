@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+tab_hr_rules,hr_rules,model_hr_employee,access_hr_rules,1,1,1,1
+access_suppliers_history,access.suppliers_history,model_suppliers_history,base.group_user,1,1,1,1
+
+

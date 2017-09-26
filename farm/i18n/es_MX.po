@@ -1,0 +1,177 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* farm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-02 13:57+0000\n"
+"PO-Revision-Date: 2016-08-02 13:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: farm
+#: model:ir.actions.act_window,help:farm.farm_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first farm\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: farm
+#: field:farm.area,annex_folio:0
+msgid "Annex folio"
+msgstr "Folio del anexo"
+
+#. module: farm
+#: field:farm,area:0
+msgid "Area"
+msgstr "Hectareas"
+
+#. module: farm
+#: field:farm,city:0
+msgid "City"
+msgstr "Municipio"
+
+#. module: farm
+#: field:farm.area,expiration:0
+msgid "Expiration"
+msgstr "Vencimiento"
+
+#. module: farm
+#: field:farm.area,client:0
+msgid "Client"
+msgstr "Cliente"
+
+#. module: farm
+#: field:farm,coords:0
+msgid "Coords"
+msgstr "Coordenadas"
+
+#. module: farm
+#: selection:farm.area,ownership_type:0
+msgid "Derivado"
+msgstr "Derivado"
+
+#. module: farm
+#: field:farm.area,expected_performance:0
+msgid "Expected performance"
+msgstr "Rendimiento esperado"
+
+#. module: farm
+#: view:purchase.order:farm.purchase_order_farm
+msgid "Farm"
+msgstr "Predio"
+
+#. module: farm
+#: view:farm.area:farm.farm_area_tree_view
+msgid "Farm Area Tree"
+msgstr "Lista de Areas de Predio"
+
+#. module: farm
+#: view:farm:farm.farm_form_view
+msgid "Farm Form"
+msgstr "Formulario de Predio"
+
+#. module: farm
+#: field:farm,name:0
+msgid "Farm ID"
+msgstr "Folio"
+
+#. module: farm
+#: view:farm:farm.farm_tree_view
+msgid "Farm Tree"
+msgstr "Lista de Predios"
+
+#. module: farm
+#: field:purchase.order,farm_area_ids:0
+msgid "Farm area ids"
+msgstr "Claves de areas de predios"
+
+#. module: farm
+#: field:farm.area,farm_id:0
+msgid "Farm id"
+msgstr "Folio"
+
+#. module: farm
+#: field:farm,farm_owner:0
+msgid "Farm owner"
+msgstr "Propietario"
+
+#. module: farm
+#: model:ir.actions.act_window,name:farm.farm_list_action
+#: model:ir.ui.menu,name:farm.menu_product_in_config_farm
+msgid "Farms"
+msgstr "Predios"
+
+#. module: farm
+#: field:farm,folio:0
+msgid "Folio"
+msgstr "Clave del predio"
+
+#. module: farm
+#: field:farm.area,hired_area:0
+msgid "Hired area"
+msgstr "Área contratada"
+
+#. module: farm
+#: field:farm,id:0
+#: field:farm.area,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: farm
+#: field:purchase.order,owner:0
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: farm
+#: field:farm.area,ownership_type:0
+msgid "Ownership type"
+msgstr "Tipo de posesión"
+
+#. module: farm
+#: selection:farm.area,ownership_type:0
+msgid "Propio"
+msgstr "Propio"
+
+#. module: farm
+#: field:farm.area,regime:0
+msgid "Regime"
+msgstr "Regimen"
+
+#. module: farm
+#: selection:farm.area,regime:0
+msgid "Riego"
+msgstr "Riego"
+
+#. module: farm
+#: selection:farm.area,regime:0
+msgid "Temporal"
+msgstr "Temporal"
+
+#. module: farm
+#: code:addons/farm/models/farm.py:17
+#: sql_constraint:farm:0
+#, python-format
+msgid "The farm id must be unique"
+msgstr "El folio debe ser unico"
+
+#. module: farm
+#: field:farm.area,tons_to_validate:0
+msgid "Tons to validate"
+msgstr "Toneladas a validar"
+
+#. module: farm
+#: field:farm.area,validated_production:0
+msgid "Validated production"
+msgstr "Producción validada"
+
+#. module: farm
+#: field:farm.area,validated_year:0
+msgid "Validated year"
+msgstr "Año validado"

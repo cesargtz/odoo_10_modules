@@ -1,0 +1,18 @@
+<form position="inside">
+    <div position="after">
+        <group name="info">
+            <group name="driver">
+                <field name="driver"/>
+                <field name="car_plates"/>
+            </group>
+        </group>
+    </div>
+</form>
+<group name="weights" position="inside">
+    <group col="3">
+        <field name="input_kilos"/>
+    </group>
+    <group col="3">
+        <field name="output_kilos"/>
+    </group>
+</group>

@@ -1,0 +1,3 @@
+Truck
+=====
+Vehicle specialization

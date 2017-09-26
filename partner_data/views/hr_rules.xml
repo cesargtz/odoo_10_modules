@@ -1,0 +1,64 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_rules">
+            <field name="name">hr_rules_tab</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="groups_id" eval="[(6,0, [ref('access_hr_rules')])]"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Operating Rules">
+                         <group>
+                            <field name="job_goals" placeholder="Job goals..." colspan="4"/>
+                         </group>
+                         <group>
+                            <field name="responsibilities" placeholder="Responsibilities..." colspan="4"/>
+                         </group>
+                         <group>
+                            <field name="additional_functions" placeholder="Additional functions..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="schedule" placeholder="Schedule..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="salary" placeholder="Salary..." colspan="4" widget="monetary"/>
+                         </group>
+                         <group>
+                             <field name="works_hours" placeholder="Work hours..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="execution_fees" placeholder="Executions fees..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="bonos" placeholder="Bonos..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="goal" placeholder="Goals..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="bonus" placeholder="Bonus..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="gasoline" placeholder="" colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="date_payment_commissions" placeholder="Date payment commissions..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="holidays" placeholder="Holidays..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="loan" placeholder="Loans..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="sanctions" placeholder="Sanctions..." colspan="4"/>
+                         </group>
+                         <group>
+                             <field name="others" colspan="4" placeholder="Others..." widget="sparkline_bar"/>
+                         </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

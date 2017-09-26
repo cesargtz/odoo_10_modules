@@ -1,0 +1,216 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* wagon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-23 16:56+0000\n"
+"PO-Revision-Date: 2016-09-23 16:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: wagon
+#: field:wagon,break_rate:0
+msgid "Break rate"
+msgstr "Quebrado"
+
+#. module: wagon
+#: field:wagon,broken_kilos:0
+msgid "Broken kilos"
+msgstr "Kilos quebrados"
+
+#. module: wagon
+#: field:wagon,clean_kilos:0
+msgid "Clean kilos"
+msgstr "Kilos limpios"
+
+#. module: wagon
+#: field:zvp,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: wagon
+#: field:zvp,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: wagon
+#: field:wagon,damage_rate:0
+msgid "Damage rate"
+msgstr "Daño"
+
+#. module: wagon
+#: field:wagon,damaged_kilos:0
+msgid "Damaged kilos"
+msgstr "Kilos dañados"
+
+#. module: wagon
+#: field:wagon,deducted_kilos:0
+msgid "Deducted kilos"
+msgstr "Kilos deducidos"
+
+#. module: wagon
+#: field:wagon,density:0
+msgid "Density"
+msgstr "Densidad"
+
+#. module: wagon
+#: field:wagon,display_name:0
+#: field:zvp,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: wagon
+#: selection:wagon,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: wagon
+#: field:wagon,humid_kilos:0
+msgid "Humid kilos"
+msgstr "Kilos humedos"
+
+#. module: wagon
+#: field:wagon,humidity_rate:0
+msgid "Humidity rate"
+msgstr "Humedad"
+
+#. module: wagon
+#: field:wagon,id:0
+#: field:zvp,id:0
+msgid "ID"
+msgstr ""
+
+#. module: wagon
+#: field:wagon,impure_kilos:0
+msgid "Impure kilos"
+msgstr "Kilos impuros"
+
+#. module: wagon
+#: field:wagon,impurity_rate:0
+msgid "Impurity rate"
+msgstr "Impureza"
+
+#. module: wagon
+#: field:wagon,__last_update:0
+#: field:zvp,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: wagon
+#: field:zvp,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: wagon
+#: field:zvp,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: wagon
+#: field:wagon,location_id:0
+msgid "Location id"
+msgstr ""
+
+#. module: wagon
+#: field:wagon,name:0
+#: field:zvp,name:0
+msgid "Name"
+msgstr ""
+
+#. module: wagon
+#: field:wagon,zvp_partner:0
+#: field:zvp,partner:0
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: wagon
+#: field:wagon,product_id:0
+msgid "Product id"
+msgstr "Producto"
+
+#. module: wagon
+#: field:wagon,raw_kilos:0
+msgid "Raw kilos"
+msgstr "Kilos neto"
+
+#. module: wagon
+#: field:wagon,seal_down_from:0
+msgid "Seal down from"
+msgstr "Sello inferior desde"
+
+#. module: wagon
+#: field:wagon,seal_down_to:0
+msgid "Seal down to"
+msgstr "Selo inferior hasta"
+
+#. module: wagon
+#: field:wagon,seal_up_from:0
+msgid "Seal up from"
+msgstr "Sello superior desde"
+
+#. module: wagon
+#: field:wagon,seal_up_to:0
+msgid "Seal up to"
+msgstr "Sello inferior hasta"
+
+#. module: wagon
+#: field:wagon,state:0
+msgid "State"
+msgstr "Esatdo"
+
+#. module: wagon
+#: field:wagon,stock_picking_id:0
+msgid "Stock picking id"
+msgstr "Movimiento de almacen"
+
+#. module: wagon
+#: field:wagon,temperature:0
+msgid "Temperature"
+msgstr "Temperatura"
+
+#. module: wagon
+#: field:wagon,ticket:0
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: wagon
+#: field:wagon,transgenic:0
+msgid "Transgenic"
+msgstr "Transgenico"
+
+#. module: wagon
+#: field:wagon,wagon:0
+msgid "Wagon"
+msgstr "Vagon"
+
+#. module: wagon
+#: field:wagon,weight_1:0
+msgid "Weight 1"
+msgstr "Peso 1"
+
+#. module: wagon
+#: field:wagon,weight_2:0
+msgid "Weight 2"
+msgstr "Peso 2"
+
+#. module: wagon
+#: field:wagon,weight_3:0
+msgid "Weight 3"
+msgstr "Peso 3"
+
+#. module: wagon
+#: field:wagon,weight_4:0
+msgid "Weight 4"
+msgstr "Peso 4"
+
+#. module: wagon
+#: field:wagon,zvp_id:0
+msgid "Zvp id"
+msgstr "ZVP"

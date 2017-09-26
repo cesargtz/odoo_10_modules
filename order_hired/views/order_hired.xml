@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="purchase_order_tons_contract_tree">
+            <field name="name">purchases_order_tons</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="replace">
+                      <field name="tons_hired" sum="tons hired"/>
+                </xpath>
+            </field>
+        </record>
+   
+</odoo>

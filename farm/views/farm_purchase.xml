@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="farm_area_tree_view">
+            <field name="name">farm.area.tree</field>
+            <field name="model">farm.area</field>
+            <field name="arch" type="xml">
+                <tree string="Farm Area Tree" editable="bottom">
+                    <field name="farm_id" required="1"/>
+                    <field name="hired_area" required="1"/>
+                    <field name="expected_performance"/>
+                    <field name="tons_to_validate" required="1"/>
+                    <field name="regime" required="1"/>
+                    <field name="validated_production" required="1"/>
+                    <field name="validated_year" required="1"/>
+                    <field name="annex_folio" required="1"/>
+                    <field name="expiration"/>
+                    <field name="client"/>
+                    <field name="ownership_type" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_order_farm">
+            <field name="name">purchase.order.farm</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Predio">
+                        <field name="farm_area_ids" attrs="{'required':[('contract_type', 'in', ['axc'])]}"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    
+</odoo>
