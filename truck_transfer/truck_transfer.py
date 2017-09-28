@@ -15,15 +15,12 @@ class truck_transfer(models.Model):
 
     @api.one
     def action_move(self):
-        self.uom = self.env['product.template'].search([('id','=', [self.product_ide.id])], limit=1)
-        if (self.uom):
-            self.uom_id = self.uom.uom_id[0]    
-        if (self.stock_destination) and (self.stock_origin == False):    
+        uom = self.product_ide.product_tmpl_id.uom_id.id
+        if (self.stock_destination) and (self.stock_origin == False):
             move_date = {
                 'product_id' : self.product_ide.id,
                 'product_uom_qty': float(self.clean_kilos_dest/1000),
-                'product_uos_qty': float(self.clean_kilos_dest/1000),
-                'product_uom':self.uom_id,
+                'product_uom':uom,
                 'name': "Transferencias Internas",
                 'location_id': self.location_id.id,
                 'location_dest_id': self.location_dest_id.id,
@@ -32,9 +29,8 @@ class truck_transfer(models.Model):
         if (self.stock_origin) and (self.stock_destination == False):
             move_date = {
                 'product_id' : self.product_ide.id,
-                'product_uom_qty':float(self.clean_kilos/1000),
-                'product_uos_qty': float(self.clean_kilos/1000),
-                'product_uom': self.uom_id,
+                'product_uom_qty': float(self.clean_kilos/1000),
+                'product_uom': uom,
                 'name': "Transferencias Internas",
                 'location_id': self.location_id.id,
                 'location_dest_id': self.location_dest_id.id,
