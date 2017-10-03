@@ -12,6 +12,7 @@
         'views/purchase_order.xml',
         'views/truck_reception.xml',
         'views/sequenci.xml',
+        'views/papperformat.xml',
         'views/report_reception.xml',
     ]
 }
