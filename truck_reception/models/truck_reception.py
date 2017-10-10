@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
+from odoo import api, fields, models, exceptions
 import requests
 import json
 
 class TruckReception(models.Model):
     _inherit = ['truck', 'vehicle.reception', 'mail.thread']
     _name = 'truck.reception'
-    
+
     name = fields.Char('Truck reception reference', required=True, select=True, copy=False, default=lambda self: self.env['ir.sequence'].next_by_code('reg_code'), help="Unique number of the Truck reception")
 
     state = fields.Selection([
@@ -26,7 +26,7 @@ class TruckReception(models.Model):
         ('100', '100'),
     ], 'Flete', default='0')
 
-    
+
 
     @api.one
     @api.depends('contract_id')
@@ -84,3 +84,7 @@ class TruckReception(models.Model):
         vals['state'] = 'weight_input'
         res = super(TruckReception, self).create(vals)
         return res
+
+    @api.multi
+    def copy(self):
+        raise exceptions.ValidationError('No es posible duplicar')

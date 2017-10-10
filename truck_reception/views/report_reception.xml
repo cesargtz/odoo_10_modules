@@ -32,6 +32,12 @@
             <!--  -->
             <tr>
               <td height="10">
+                <p>Productor. <small style="font-size:14px; color:black; font-weight:bold;" t-field="o.partner_id"/></p>
+              </td>
+            </tr>
+            <!--  -->
+            <tr>
+              <td height="10">
                 <p>Contrato. <small style="font-size:14px; color:black; font-weight:bold;" t-field="o.contract_id"/></p>
               </td>
             </tr>
@@ -51,6 +57,12 @@
             <tr>
               <td height="10">
                 <p>Fecha. <small style="font-size:14px; color:black; font-weight:bold;" t-field="o.date"/></p>
+              </td>
+            </tr>
+            <!--  -->
+            <tr>
+              <td height="10">
+                <p>Ticket. <small style="font-size:14px; color:black; font-weight:bold;" t-field="o.ticket"/></p>
               </td>
             </tr>
           </table>
