@@ -13,7 +13,6 @@ class TruckReception(models.Model):
     state = fields.Selection([
         ('analysis', 'Analisis'),
         ('weight_input', 'Peso de Entrada'),
-        ('unloading', 'Descargando'),
         ('weight_output', 'Pesos de Salida'),
         ('done', 'Hecho'),
     ], default='analysis')
@@ -56,13 +55,25 @@ class TruckReception(models.Model):
     	self.temperature = float(json_data['temperatura'].strip())
 
     @api.one
-    def weight_update(self):
+    def weight_input(self):
         url = 'http://nvryecora.ddns.net:8081'
         response = requests.get(url)
         json_data = json.loads(response.text)
-        self.input_kilos = float(json_data['peso_entrada'])
-        self.output_kilos = float(json_data['peso_salida'])
-        self.raw_kilos = float(json_data['peso_neto'])
+        if json_data['id'] == self.name[-3:]:
+            self.input_kilos = float(json_data['peso_entrada'])
+            self.write({'state': 'weight_output'}, 'r')
+        else:
+            raise exceptions.ValidationError('Id de la bascula no coincide')
+    @api.one
+    def weight_output(self):
+        url = 'http://nvryecora.ddns.net:8081'
+        response = requests.get(url)
+        json_data = json.loads(response.text)
+        if json_data['id'] == self.name[-3:]:
+            self.output_kilos = float(json_data['peso_salida'])
+            self.write({'state': 'done'}, 'r')
+        else:
+            raise exceptions.ValidationError('Id de la bascula no coincide')
 
     @api.multi
     def write(self, vals, recursive=None):
@@ -70,8 +81,6 @@ class TruckReception(models.Model):
             if self.state == 'analysis':
                 self.write({'state': 'weight_input'}, 'r')
             elif self.state == 'weight_input':
-                self.write({'state': 'unloading'}, 'r')
-            elif self.state == 'unloading':
                 self.write({'state': 'weight_output'}, 'r')
             elif self.state == 'weight_output':
                 self.write({'state': 'done'}, 'r')
@@ -87,4 +96,4 @@ class TruckReception(models.Model):
 
     @api.multi
     def copy(self):
-        raise exceptions.ValidationError('No es posible duplicar')
+        raise exceptions.ValidationError('No es posible duplicar.')

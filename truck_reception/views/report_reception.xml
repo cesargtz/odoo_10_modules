@@ -59,37 +59,32 @@
                 <p>Fecha. <small style="font-size:14px; color:black; font-weight:bold;" t-field="o.date"/></p>
               </td>
             </tr>
-            <!--  -->
-            <tr>
-              <td height="10">
-                <p>Ticket. <small style="font-size:14px; color:black; font-weight:bold;" t-field="o.ticket"/></p>
-              </td>
-            </tr>
+
           </table>
             <!--  -->
-            <p>_________________________________________</p>
+            <p>____________________________________</p>
             <!--  -->
           <table style="border: 0px;  width:100%;">
             <tr >
               <td height="10">
-                <p>Contratado. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.hired))"/><b> tons</b></p>
+                <p>Contratado. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.hired))"/><b> tons</b></p>
               </td>
             </tr>
             <!--  -->
             <tr >
               <td height="10">
-                <p>Entregado. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.delivered))"/><b> tons</b></p>
+                <p>Entregado. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.delivered))"/><b> tons</b></p>
               </td>
             </tr>
             <!--  -->
             <tr>
               <td height="10">
-                <p>Pendiente. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.pending))"/><b> tons</b></p>
+                <p>Pendiente. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.pending))"/><b> tons</b></p>
               </td>
             </tr>
           </table>
             <!--  -->
-            <p>_________________________________________</p>
+            <p>____________________________________</p>
             <!--  -->
           <table style="border: 0px;  width:100%;">
             <tr>
@@ -120,7 +115,7 @@
             </tr>
           </table>
           <!--  -->
-          <p>_________________________________________</p>
+          <p>____________________________________</p>
           <!--  -->
           <table style="border: 0px;  width:100%;">
             <!-- <tr>
@@ -131,32 +126,32 @@
             <!--  -->
             <tr>
               <td height="10">
-                <p><b>Peso de entrada. </b><small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.input_kilos))"/><b> kg</b></p>
+                <p><b>Peso de entrada. </b><small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.input_kilos))"/><b> kg</b></p>
               </td>
             </tr>
             <!--  -->
             <tr>
               <td height="10">
-                <p><b>Peso de salida. </b><small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.output_kilos))"/><b> kg</b></p>
+                <p><b>Peso de salida. </b><small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.output_kilos))"/><b> kg</b></p>
               </td>
             </tr>
             <!--  -->
             <tr>
               <td height="10">
                 <p>
-                  <b>Kilos netos. </b><small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.raw_kilos))"/><b> kg</b>
+                  <b>Kilos netos. </b><small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.raw_kilos))"/><b> kg</b>
                 </p>
                 </td>
               </tr>
               <!--  -->
           </table>
           <!--  -->
-          <p>_________________________________________</p>
+          <p>____________________________________</p>
           <!--  -->
           <table style="border: 0px;  width:100%;">
               <tr>
                 <td height="10">
-                  <p>Kilos quebrados. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.broken_kilos))"/><b> kg</b></p>
+                  <p>Kilos quebrados. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.broken_kilos))"/><b> kg</b></p>
                 </td>
               </tr>
               <!--  -->
@@ -168,25 +163,40 @@
               <!--  -->
               <tr>
                 <td height="10">
-                  <p>Kilos dañados. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.damaged_kilos))"/><b> kg</b></p>
+                  <p>Kilos dañados. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.damaged_kilos))"/><b> kg</b></p>
                 </td>
               </tr>
               <!--  -->
               <tr>
                 <td height="10">
-                  <p>Kilos humedos. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.humid_kilos))"/><b> kg</b></p>
+                  <p>Kilos humedos. <small style="font-size:14px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.humid_kilos))"/><b> kg</b></p>
                 </td>
               </tr>
               <!--  -->
             </table>
             <!--  -->
-            <p>_________________________________________</p>
+            <p>____________________________________</p>
             <!--  -->
             <table style="border: 0px;  width:100%; font-size:20px;">
               <tr>
                 <td style="text-align: right;">
-                  <p><b>Kilos limpios: </b><small style="font-size:20px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(int(o.clean_kilos))"/><b> kg</b>
+                  <p><b>Kilos limpios: </b><small style="font-size:20px; color:black; font-weight:bold;" t-esc="'{0:,.2f}'.format(float(o.clean_kilos))"/><b> kg</b>
                   </p>
+                </td>
+              </tr>
+              <!--  -->
+              <!--  Firma -->
+            </table>
+            <table style="border: 0px;  width:100%; font-size:20px;">
+              <tr>
+                <td style="text-align: center;">
+                  <p>____________________<small style="font-size:14px; color:#474545; font-weight:bold;"></small></p>
+                </td>
+              </tr>
+              <br/>
+              <tr>
+                <td style="text-align: center;">
+                  <p>Firma<small style="font-size:13px; color:#424242; font-weight:bold;" ></small></p>
                 </td>
               </tr>
               <!--  -->
