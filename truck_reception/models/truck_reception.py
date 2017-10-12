@@ -70,8 +70,11 @@ class TruckReception(models.Model):
         response = requests.get(url)
         json_data = json.loads(response.text)
         if json_data['id'] == self.name[-3:]:
-            self.output_kilos = float(json_data['peso_salida'])
-            self.write({'state': 'done'}, 'r')
+            if float(json_data['peso_salida']) > 1:
+                self.output_kilos = float(json_data['peso_salida'])
+                self.write({'state': 'done'}, 'r')
+            else:
+                raise exceptions.ValidationError('Revisar el id de bascula')
         else:
             raise exceptions.ValidationError('Id de la bascula no coincide')
 
