@@ -26,6 +26,20 @@ class PurchaseContractType(models.Model):
     tons_text = fields.Text(compute='_compute_tons_text', store=False)
     product = fields.Many2one('product.product', compute='_compute_product', store=False)
 
+    tons_reception = fields.Float(compute='_compute_tons_reception', string="Toneladas Disponibles", store=False)
+
+    @api.one
+    def _compute_tons_reception(self):
+        available = 0
+        for line in self.env['truck.reception'].search([('contract_id', '=', self.name), ('state', '=', 'done')]):
+            if line.stock_picking_id:
+                available = available + (line.clean_kilos / 1000)
+        for line in self.env['split.receptions'].search([('contract_id', '=', self.name), ('state', '=', 'close')]):
+            available = available - line.tons_transfer
+        for line in self.env['split.receptions'].search([('contract_dest_id', '=', self.name), ('state', '=', 'close')]):
+            available = available + line.tons_transfer
+        self.tons_reception = available
+
     @api.one
     @api.depends('order_line')
     def _compute_tons(self):

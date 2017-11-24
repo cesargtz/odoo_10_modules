@@ -12,7 +12,7 @@ class VehicleReception(models.AbstractModel):
     partner_id = fields.Many2one('res.partner', 'Vendedor', readonly=True, related="contract_id.partner_id")
     street2 = fields.Char('Dirección', readonly=True, related='partner_id.street2')
     contract_state = fields.Selection('Estatus de Contrato', readonly=True, related="contract_id.state")
-    active = fields.Boolean(default=True, string="Activo") 
+    active = fields.Boolean(default=True, string="Activo")
 
     hired = fields.Float('Contratado', compute="_compute_hired", readonly=True, store=False)
     delivered = fields.Float('Entregado', compute="_compute_delivered", readonly=True, store=False)
@@ -23,7 +23,7 @@ class VehicleReception(models.AbstractModel):
 
     damaged_location = fields.Many2one('stock.location', 'Ubicación Dañado')
 
-    owner_id = fields.Many2one('res.partner', 'Propietario',  help="Propietario", readonly=True, states={'analysis': [('readonly', False)]}) 
+    owner_id = fields.Many2one('res.partner', 'Propietario',  help="Propietario", readonly=True, states={'analysis': [('readonly', False)]})
 
     contract_type = fields.Selection([
         ('axc', 'AxC'),
@@ -75,25 +75,25 @@ class VehicleReception(models.AbstractModel):
             pending_ma = 1000*sum(move.product_uom_qty for move in self.stock_picking_id.move_lines)
 	    for move in self.stock_picking_id.move_lines:
                 move.location_dest_id = self.location_id
-            if pending_ma >= self.clean_kilos:
+            # if pending_ma >= self.clean_kilos:
                 self._do_enter_transfer_details(picking, self.stock_picking_id, self.clean_kilos, self.location_id)
-            else:
-                self._do_enter_transfer_details(picking, self.stock_picking_id, pending_ma, self.location_id)
-                self.contract_id.auxiliary_contract = self.env['purchase.order'].create({'partner_id': self.contract_id.partner_id.id,
-                                                                                         'picking_type_id': self.contract_id.picking_type_id.id,
-                                                                                         #'pricelist_id': self.contract_id.pricelist_id.id
-                                                                                         })
-                self.contract_id.auxiliary_contract.contract_type = 'surplus'
-                self.contract_id.auxiliary_contract.order_line = self.env['purchase.order.line'].create({
-                    'order_id': self.auxiliary_contract.id,
-                    'product_id': self.contract_id.order_line[0].product_id.id,
-                    'name': self.contract_id.order_line[0].name,
-                    'date_planned': self.contract_id.order_line[0].date_planned,
-                    'company_id': self.contract_id.order_line[0].company_id.id,
-                    'product_qty': (self.clean_kilos - pending_ma)/1000,
-                    'price_unit': self.contract_id.order_line[0].price_unit,
-                    'product_uom': self.contract_id.order_line[0].product_uom.id,
-                })
+            # else:
+            #     self._do_enter_transfer_details(picking, self.stock_picking_id, pending_ma, self.location_id)
+            #     self.contract_id.auxiliary_contract = self.env['purchase.order'].create({'partner_id': self.contract_id.partner_id.id,
+            #                                                                              'picking_type_id': self.contract_id.picking_type_id.id,
+            #                                                                              #'pricelist_id': self.contract_id.pricelist_id.id
+            #                                                                              })
+            #     self.contract_id.auxiliary_contract.contract_type = 'surplus'
+            #     self.contract_id.auxiliary_contract.order_line = self.env['purchase.order.line'].create({
+            #         'order_id': self.auxiliary_contract.id,
+            #         'product_id': self.contract_id.order_line[0].product_id.id,
+            #         'name': self.contract_id.order_line[0].name,
+            #         'date_planned': self.contract_id.order_line[0].date_planned,
+            #         'company_id': self.contract_id.order_line[0].company_id.id,
+            #         'product_qty': (self.clean_kilos - pending_ma)/1000,
+            #         'price_unit': self.contract_id.order_line[0].price_unit,
+            #         'product_uom': self.contract_id.order_line[0].product_uom.id,
+            #     })
 
     @api.multi
     def fun_ship(self):

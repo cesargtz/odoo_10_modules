@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    
+
         <record model="ir.ui.view" id="purchase_order_form_contract_type">
             <field name="name">purchase.order.form.contract.type</field>
             <field name="model">purchase.order</field>
@@ -12,7 +12,10 @@
                 <field name="date_order" position="after">
                     <field name="is_signed"/>
                 </field>
+                <field name="company_id" position="after">
+                    <field name="tons_reception" string="Toneladas Entregado"/>
+                </field>
             </field>
         </record>
-    
+
 </odoo>

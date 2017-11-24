@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-   
+
         <record id="seq_wagon_outlet" model="ir.sequence">
             <field name="name">reg</field>
             <field name="code">reg_code_wo</field>
@@ -45,10 +45,12 @@
                                     <field name="partner_id"/>
                                     <field name="street"/>
 				                    <field name="location_id" string="Ubicacion de salida"  attrs="{'readonly':[('state', 'not in', ['capture'])]}"/>
+                            <field name="owner_id" />
                                 </group>
                             </group>
                             <group col="1">
                                 <group>
+                                    <field name="date"/>
                                     <field name="wagon" required="1" attrs="{'readonly':[('state', 'not in', ['capture'])]}"/>
                                     <field name="order_num"/>
                                 </group>
@@ -56,12 +58,12 @@
                                     <field name="zvp_id" required="1" string="ZVP" attrs="{'readonly':[('state', 'not in', ['capture'])]}"/>
                                     <field name="zvp_partner" nolabel="1" class="oe_inline"/>
                                 </group>
-                                
+
                                 <group col="4">
                                     <field name="seal_down_from" required="1" attrs="{'readonly':[('state', 'not in', ['capture'])]}" style="width: 150%%"/>
                                     <field name="seal_down_to" string="to" required="1" attrs="{'readonly':[('state', 'not in', ['capture'])]}" class="oe_inline"  />
                                 </group>
-                                
+
                             </group>
                         </group>
                         <group col="3">
@@ -109,19 +111,19 @@
                         <group>
                             <group col="1">
                                 <group col="5">
-                                    <group col="1">                                        
+                                    <group col="1">
                                         <label string="Weight 1"/>
                                         <field name="weight_1" readonly="1" attrs="{'invisible': [('state', '=', 'capture')]}" required="1" nolabel="1"/>
                                     </group>
-                                    <group col="1">                                       
+                                    <group col="1">
                                         <label string="Weight 2"/>
                                         <field name="weight_2" readonly="1" attrs="{'invisible': [('state', '=', 'capture')]}" required="1" nolabel="1"/>
                                     </group>
-                                    <group col="1">                                        
+                                    <group col="1">
                                         <label string="Weight 3"/>
                                         <field name="weight_3" readonly="1" attrs="{'invisible': [('state', '=', 'capture')]}" required="1" nolabel="1"/>
                                     </group>
-                                    <group col="1">                                        
+                                    <group col="1">
                                         <label string="Peso 4"/>
                                         <field name="weight_4" attrs="{'invisible': [('state', '=', 'capture')]}" required="1" nolabel="1"/>
                                     </group>
@@ -257,5 +259,5 @@
             id="menu_action_wagon_outlet_form"
             parent="vehicle_outlet.menu_outlets"
             action="wagon_outlet_list_action"/>
-    
+
 </odoo>

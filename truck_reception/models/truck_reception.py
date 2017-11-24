@@ -47,12 +47,13 @@ class TruckReception(models.Model):
 
     @api.one
     def humidity_update(self):
-    	url = 'http://nvryecora.ddns.net:8080'
+    	url = 'http://nvryecora.ddns.net:1723'
     	response = requests.get(url)
     	json_data = json.loads(response.text)
     	self.humidity_rate = float(json_data['humedad'].strip())
-    	self.density = float(json_data['densidad'].strip())
+    	self.density = float(json_data['densidad'])
     	self.temperature = float(json_data['temperatura'].strip())
+        self.write({'state': 'analysis'}, 'r')
 
     @api.one
     def weight_input(self):

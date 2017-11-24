@@ -13,10 +13,14 @@ class VehicleOutlet(models.AbstractModel):
     street = fields.Char('Dirección', readonly=True, related='partner_id.street')
     contract_state = fields.Selection('Estado de Contrato', readonly=True, related="contract_id.state")
     active = fields.Boolean(default=True, string="Activo")
+    date = fields.Date(required=True, default=fields.Date.today)
 
     hired = fields.Float('Contratado', compute="_compute_hired", readonly=True, store=False)
     delivered = fields.Float('Entregado', compute="_compute_delivered", readonly=True, store=False)
     pending = fields.Float('Pendiente', compute="_compute_pending", readonly=True, store=False)
+
+    owner_id = fields.Many2one('res.partner', 'Propietario',  help="Propietario", readonly=True, states={'capture': [('readonly', False)], 'analysis': [('readonly', False)]})
+
 
     product_id = fields.Many2one('Producto', 'product.product', compute="_compute_product_id", readonly=True, store=False)
     location_id = fields.Many2one('stock.location', 'Ubicación')
@@ -81,11 +85,18 @@ class VehicleOutlet(models.AbstractModel):
             'active_ids': picking_id,
             'active_id': len(picking_id) and picking_id[0] or False
         })
-        
+
         created_id = self.env['stock.backorder.confirmation'].with_context(context).create({'picking_id': len(picking_id) and picking_id[0] or False})
         items = []
+
+        if self.owner_id.id:
+            self.stock_picking_id.write({'owner_id': self.owner_id.id})
+            self.stock_picking_id.action_assign_owner()
+
         if not self.stock_picking_id.pack_operation_ids:
             self.stock_picking_id.do_prepare_partial()
+
         for op in self.stock_picking_id.pack_operation_ids:
             op.write({'qty_done':self.raw_kilos/1000, "location_id": self.location_id.id})
+            break;
         created_id.process()
